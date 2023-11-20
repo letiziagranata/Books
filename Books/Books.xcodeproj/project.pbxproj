@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		669D74472B0B578800752E4F /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669D74462B0B578800752E4F /* MainPageView.swift */; };
+		669D74492B0B57FD00752E4F /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669D74482B0B57FD00752E4F /* LibraryView.swift */; };
+		669D744B2B0B581900752E4F /* BookStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669D744A2B0B581900752E4F /* BookStoreView.swift */; };
+		669D744D2B0B583E00752E4F /* AudiobooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669D744C2B0B583E00752E4F /* AudiobooksView.swift */; };
+		669D744F2B0B585500752E4F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669D744E2B0B585500752E4F /* SearchView.swift */; };
+		669D74512B0B5F7B00752E4F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669D74502B0B5F7B00752E4F /* AccountView.swift */; };
 		66D0904D2B038B76008F5364 /* BooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D0904C2B038B76008F5364 /* BooksApp.swift */; };
 		66D0904F2B038B76008F5364 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D0904E2B038B76008F5364 /* ContentView.swift */; };
 		66D090512B038B77008F5364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D090502B038B77008F5364 /* Assets.xcassets */; };
@@ -35,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		669D74462B0B578800752E4F /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
+		669D74482B0B57FD00752E4F /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		669D744A2B0B581900752E4F /* BookStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreView.swift; sourceTree = "<group>"; };
+		669D744C2B0B583E00752E4F /* AudiobooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudiobooksView.swift; sourceTree = "<group>"; };
+		669D744E2B0B585500752E4F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		669D74502B0B5F7B00752E4F /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		66D090492B038B76008F5364 /* Books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D0904C2B038B76008F5364 /* BooksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksApp.swift; sourceTree = "<group>"; };
 		66D0904E2B038B76008F5364 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +114,12 @@
 				66D090792B04CE45008F5364 /* Font */,
 				66D0904C2B038B76008F5364 /* BooksApp.swift */,
 				66D0904E2B038B76008F5364 /* ContentView.swift */,
+				669D74482B0B57FD00752E4F /* LibraryView.swift */,
+				669D744A2B0B581900752E4F /* BookStoreView.swift */,
+				669D744C2B0B583E00752E4F /* AudiobooksView.swift */,
+				669D744E2B0B585500752E4F /* SearchView.swift */,
+				669D74462B0B578800752E4F /* MainPageView.swift */,
+				669D74502B0B5F7B00752E4F /* AccountView.swift */,
 				66D090502B038B77008F5364 /* Assets.xcassets */,
 				66D090522B038B77008F5364 /* Books.entitlements */,
 				66D090532B038B77008F5364 /* Preview Content */,
@@ -273,8 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669D744D2B0B583E00752E4F /* AudiobooksView.swift in Sources */,
+				669D74492B0B57FD00752E4F /* LibraryView.swift in Sources */,
 				66D0904F2B038B76008F5364 /* ContentView.swift in Sources */,
+				669D744F2B0B585500752E4F /* SearchView.swift in Sources */,
+				669D74512B0B5F7B00752E4F /* AccountView.swift in Sources */,
+				669D744B2B0B581900752E4F /* BookStoreView.swift in Sources */,
 				66D0904D2B038B76008F5364 /* BooksApp.swift in Sources */,
+				669D74472B0B578800752E4F /* MainPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
