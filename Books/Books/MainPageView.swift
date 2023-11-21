@@ -13,6 +13,8 @@ struct MainPageView: View {
     @State private var position: Int?
     @State private var isScrolling: Bool = false
     @State private var offsetY: CGFloat = 0
+    @State private var isActive : Bool = false
+
     //  @State private var isShowingAccount: Bool = false
     
     init() {
@@ -94,45 +96,114 @@ struct MainPageView: View {
                         
                         Divider()
                             .frame(width: 350)
-                        VStack (alignment: .leading){
-                            Text("Favourites")
-                                .fontDesign(.serif)
-                                .fontWeight(.bold)
-                                .font(.title)
-                                .padding(.bottom, 5)
-                            VStack (alignment: .leading){
-                                HStack {
-                                    Text("Bestseller 2022")
-                                        .fontDesign(.serif)
                         
-                                    Image(systemName:"chevron.right")
-                                        .fontWeight(.light)
-                                }
-                                    Image("Best Sellers")
+                        ZStack {
+                            Rectangle()
+                                .fill(LinearGradient(colors: [.white, Color(uiColor: .systemGray6)], startPoint: .top, endPoint: .bottom))
+                                .frame(height: 550)
+                            VStack (alignment: .leading){
+                                Text("Favourites")
+                                    .fontDesign(.serif)
+                                    .fontWeight(.bold)
+                                    .font(.title)
+                                    .padding(.bottom, 5)
+                                VStack (alignment: .leading){
+                                    HStack {
+                                        Text("Bestseller 2022")
+                                            .fontDesign(.serif)
+                            
+                                        Image(systemName:"chevron.right")
+                                            .fontWeight(.light)
+                                    }
+                                        Image("Best Sellers")
+                                            .resizable()
+                                            .frame(width: 330, height: 170)
+                                            .cornerRadius(15)
+                                        .shadow(radius: 15, x: 0, y: 10)
+                                    }
+                                
+                                .padding(.bottom, 20)
+                                
+                                VStack (alignment: .leading){
+                                    HStack {
+                                        Text("Free Books")
+                                            .fontDesign(.serif)
+                            
+                                        Image(systemName:"chevron.right")
+                                            .fontWeight(.light)
+                                    }
+                                    Image("Free Books")
                                         .resizable()
                                         .frame(width: 330, height: 170)
                                         .cornerRadius(15)
                                     .shadow(radius: 15, x: 0, y: 10)
                                 }
-                            
-                            .padding(.bottom, 20)
-                            
-                            VStack (alignment: .leading){
-                                HStack {
-                                    Text("Free Books")
+                                
+                            }
+                            .padding(.top, 13)
+                        .padding(.bottom, 30)
+                        };                        NavigationStack {
+                            ZStack {
+                                Rectangle()
+                                    .fill(LinearGradient(colors: [.white, Color(uiColor: .systemGray6)], startPoint: .top, endPoint: .bottom))
+                                    .frame(height: 400)
+                                VStack (alignment: .leading) {
+                                    Text("Hot This Week (you)")
                                         .fontDesign(.serif)
-                        
-                                    Image(systemName:"chevron.right")
-                                        .fontWeight(.light)
+                                        .fontWeight(.bold)
+                                        .font(.title)
+                                        .padding(.leading, 30)
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        VStack (alignment: .leading) {
+                                            HStack {
+                                                NavigationLink(destination: {
+                                                    AudiobooksView()}){
+                                                        Image("Killers of The Flower Moon David Grann")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .frame(width: 200, height: 250)
+                                                    }
+                                                Image("The Armour of Light Ken Follett")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 200, height: 250)
+                                                Image("The War of The Two Queens Jennifer Armentrout")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 200, height: 250)
+                                                Image("Holly Stephen King")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 200, height: 250)
+                                                Image("After That Night Karin Slaughter")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 200, height: 250)
+                                                Image("The Ice Child Camilla Lackberg")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(width: 200, height: 250)
+                                            }
+                                          }
+                                    //    .padding(.leading, -20)
+                                        }
+                                   // .padding(.leading, 15)
+                                    Divider()
+                                        .frame(width: 325)
+                                        .padding(.top, 30)
+                                    HStack{
+                                        Text("See all")
+                                        Image(systemName: "chevron.right")
+                                    }
+                                    .padding(.leading, 15)
+                                    }
+                                //.padding(.leading, 30)
+                                        .padding(.top, 10)
                                 }
-                                Image("Free Books")
-                                    .resizable()
-                                    .frame(width: 330, height: 170)
-                                    .cornerRadius(15)
-                                .shadow(radius: 15, x: 0, y: 10)
+                                
                             }
                         }
-                        .padding(.top, 13)
+                        
                     }
                     .overlay(
                         Image(systemName: "person.crop.circle")
@@ -162,28 +233,17 @@ struct MainPageView: View {
                             isScrolling = true
                         }
                     }
-                    //                    Rectangle()
-                    //                        .frame(width: 40, height: 40)
-                    //                        .foregroundColor(.blue.opacity(1))
-                    //                        .offset(x: 135, y: -300)
-                    //                        .onTapGesture {
-                    //                            isShowingAccount.toggle()
-                    //                        }
+                    
                 }
-                
-            }
             .navigationBarTitle("Reading Now")
+            }
+            
             
             .onPreferenceChange(OffsetPreferenceKey.self) {
                 offsetY = $0
             }
         }
-        
-        //        .sheet(isPresented: $isShowingAccount) {
-        //            AccountView()
-        //                .presentationDetents([.large])
-        //        }
-    }
+    
 }
 
 struct OffsetPreferenceKey: PreferenceKey {
@@ -192,48 +252,6 @@ struct OffsetPreferenceKey: PreferenceKey {
         value = nextValue()
     }
 }
-
-
-/*.toolbar {
- ToolbarItem(placement: .topBarTrailing) {
- Image(systemName: "person.crop.circle")
- .resizable()
- .frame(width: 40, height: 40)
- .offset(x: -15, y: 45)
- }
- }*/
-
-//                .toolbar {
-//                    ToolbarItem(placement: .topBarTrailing) {
-//                            Image(systemName: "person.crop.circle")
-//                                .resizable()
-//                                .frame(width: 40, height: 40)
-//                                .offset(x: -15, y: 45)
-//                    }
-//                }
-//                .toolbar(isScrolling ? .hidden : .visible, for: .navigationBar)
-//                .navigationTitle("Reading Now")
-////                .navigationBarTitleDisplayMode(.inline)
-//            }
-//        }
-//
-//
-//
-//
-//        //init to look among the possible fonts in the family you downloaded
-//        //    init() {
-//        //        for familyName in  UIFont.familyNames {
-//        //            print(familyName)
-//        //
-//        //            for fontName in UIFont.fontNames(forFamilyName: familyName) {
-//        //                print("-- \(fontName)")
-//        //            }
-//        //        }
-//        //    }
-//
-//    }
-//}
-
 
 #Preview {
     MainPageView()
