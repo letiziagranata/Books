@@ -37,6 +37,7 @@ struct MainPageView: View {
                                 Image(systemName: "circle")
                                     .fontWeight(.heavy)
                                     .opacity(0.2)
+                                    .accessibilityHidden(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
                                 Text("New! Read more with daily reading goals.")
                                     .font(.caption2)
                                     .padding(.leading, -2)
@@ -156,7 +157,7 @@ struct MainPageView: View {
                                     .fill(LinearGradient(colors: [.white, Color(uiColor: .systemGray6)], startPoint: .top, endPoint: .bottom))
                                     .frame(height: 400)
                                 VStack (alignment: .leading) {
-                                    Text("Hot This Week (you🤤)")
+                                    Text("Hot This Week (you)")
                                         .fontDesign(.serif)
                                         .fontWeight(.bold)
                                         .font(.title)
@@ -171,7 +172,9 @@ struct MainPageView: View {
                                                     .resizable()
                                                     .scaledToFit()
                                                     .frame(width: 200, height: 250)
-                                                    .accessibilityLabel(booky.title)
+                                                    .accessibilityRemoveTraits(.isImage)
+                                                    .accessibilityAddTraits(.isStaticText)
+                                                    .accessibilityLabel(booky.title + ", " + booky.author)
                                             }
                                         }
                                     }
